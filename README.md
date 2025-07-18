@@ -44,8 +44,19 @@ gcc read_fuse_error.c -o read_fuse_error
 ### 1. Create required directories:
 
 ```bash
-mkdir -p backend mountpoint
+# Create the mountpoint directory in the current directory
+mkdir mountpoint
+
+# Create the /opt/backend directory with root permissions
+sudo mkdir -p /opt/backend
+
+# Change the ownership of /opt/backend to the current user
+sudo chown -R user_name:user_name /opt/backend
+
+# Set read, write, and execute permissions for the owner, and read and execute for others
+sudo chmod -R 755 /opt/backend
 ```
+
 
 ### 2. Encrypt and store files in the `backend/` directory manually. Example:
 
@@ -53,12 +64,12 @@ mkdir -p backend mountpoint
 echo "fuse file 1" | openssl enc -aes-256-cbc \
   -K 3031323334353637383930313233343536373839303132333435363738393031 \
   -iv 30313233343536373839303132333435 \
-  -nosalt -out backend/fuse_file.txt
+  -nosalt -out /opt/backend/fuse_file.txt
 
 echo "fuse file 2" | openssl enc -aes-256-cbc \
   -K 3031323334353637383930313233343536373839303132333435363738393031 \
   -iv 30313233343536373839303132333435 \
-  -nosalt -out backend/fuse_file_2.txt
+  -nosalt -out /opt/backend/fuse_file_2.txt
 ```
 
 ### 3. Mount the filesystem:
