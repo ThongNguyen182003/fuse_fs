@@ -15,7 +15,7 @@ Unauthorized applications will receive a **Permission denied** error.
 ### Install dependencies (Debian/Ubuntu)
 
 ```bash
-sudo apt install libfuse3-dev libssl-dev
+sudo apt install libfuse3-dev libssl-dev fuse3
 ```
 
 ---
