@@ -7,8 +7,8 @@
 const char *whitelist[] = {"bash", "cat", "echo", "read_fuse"};
 const int num_whitelist = 4;
 
-const char *backend_dir = "/home/thong/fuse/backend/";
-const char *log_path = "/home/thong/fuse/fuse.log";
+const char *backend_dir = "/opt/backend/";
+const char *log_path = "/opt/fuse_log/fuse.log";
 
 const unsigned char aes_key[32] = "01234567890123456789012345678901";
 const unsigned char aes_iv[16] = "0123456789012345";
